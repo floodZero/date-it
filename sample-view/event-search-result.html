@@ -1,0 +1,243 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-[#f8fcfa] justify-between group/design-root overflow-x-hidden"
+      style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'
+    >
+      <div>
+        <div class="flex items-center bg-[#f8fcfa] p-4 pb-2 justify-between">
+          <div class="text-[#0c1c17] flex size-12 shrink-0 items-center" data-icon="List" data-size="24px" data-weight="regular">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path
+                d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-[#0c1c17] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Events</h2>
+          <div class="flex w-12 items-center justify-end">
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#0c1c17] gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0"
+            >
+              <div class="text-[#0c1c17]" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="px-4 py-3">
+          <label class="flex flex-col min-w-40 h-12 w-full">
+            <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+              <div
+                class="text-[#46a080] flex border-none bg-[#e6f4ef] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                data-icon="MagnifyingGlass"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                </svg>
+              </div>
+              <input
+                placeholder="Search events"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0c1c17] focus:outline-0 focus:ring-0 border-none bg-[#e6f4ef] focus:border-none h-full placeholder:text-[#46a080] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                value=""
+              />
+            </div>
+          </label>
+        </div>
+        <div class="flex gap-3 p-3 overflow-x-hidden">
+          <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e6f4ef] pl-4 pr-4">
+            <p class="text-[#0c1c17] text-sm font-medium leading-normal">All</p>
+          </div>
+          <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e6f4ef] pl-4 pr-4">
+            <p class="text-[#0c1c17] text-sm font-medium leading-normal">Today</p>
+          </div>
+          <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e6f4ef] pl-4 pr-4">
+            <p class="text-[#0c1c17] text-sm font-medium leading-normal">Tomorrow</p>
+          </div>
+          <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e6f4ef] pl-4 pr-4">
+            <p class="text-[#0c1c17] text-sm font-medium leading-normal">This week</p>
+          </div>
+          <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e6f4ef] pl-4 pr-4">
+            <p class="text-[#0c1c17] text-sm font-medium leading-normal">This weekend</p>
+          </div>
+        </div>
+        <h2 class="text-[#0c1c17] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Nearby</h2>
+        <div class="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+          <div class="flex items-stretch p-4 gap-3">
+            <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0W0WDXmXrnMna5TByl5Q6HxyahhGpQmMOi7YFGR6pxGT1R4fmNB0WDcTOmXewWlwjfUvFs7GL0L1UFiQ3NULtFA1THkjUzAMEVkZkMNxLxh70L6h0TruTkPnlyTeCyOOAM-gb-YSAWx57-8VxYz-WHYEnqTD9iolvC3WyfFRG447xb_jlTrQO8y3QPD1vWefFGZN_VT3eXy2O5OJj2_5x1M1WTEhjatPudJ25STM_3GLIUC9DWHhmDxrrwyjivwkE84J0mOea6GY");'
+              ></div>
+              <div>
+                <p class="text-[#0c1c17] text-base font-medium leading-normal">Live Music Extravaganza</p>
+                <p class="text-[#46a080] text-sm font-normal leading-normal">Experience the best local bands</p>
+              </div>
+            </div>
+            <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB3jiYIqP_YgVcOQgGX9kDufYEXrP0eFwOHt5IXxT5KWIXnqMfya_FMaLwpwii-AlANJRvTSFK4POn3NcK07ypn3iLKly2wHAUmEF_hm729DerS1IWctmEnlf0gt4WAXFjn9ETy0MQeNi4S9jhPZ196yvxWNeSgyp_3VEdktXhxMz90HEbNhkVvAC_7zcGcwYHjFcCtlOhPJagt2nZDwYzITvyI20TmZVL7hPXLywEY3m7Q_4Ni_KZt8U6sz21UeCx8RDnTpfmFiTU");'
+              ></div>
+              <div>
+                <p class="text-[#0c1c17] text-base font-medium leading-normal">Summer Festival</p>
+                <p class="text-[#46a080] text-sm font-normal leading-normal">Fun for the whole family</p>
+              </div>
+            </div>
+            <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaTVHTD1ziibZbopSviUy7rIMi6lcrQdP10ikT3QgBbzAscCE_-Qr0Np7CCXYWmqyDllhyQjlvQPeDoDM4z5qTOMhK0BoQrPW1ZSF5R9NPWqVeuhiKiEY5YAXZ50EcsBFh4-4OLYI4WlwP3hDdnC77jqAuh5-BKkMLQ80uMsaOV2uubPNvoxsiHtIx9JIG7KypRay2OO5nOh80ZUS2s92b_AiMLXpaRQPG0K8Bk8lDUeVD-3PEHqKq0goX3dpTKdd8RUZX7tRIuSQ");'
+              ></div>
+              <div>
+                <p class="text-[#0c1c17] text-base font-medium leading-normal">Art &amp; Culture Showcase</p>
+                <p class="text-[#46a080] text-sm font-normal leading-normal">Discover new artists and exhibits</p>
+              </div>
+            </div>
+            <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2SsoJMIJpnFpNY9qa8ucu0YRuFPtTe1myRxX6uYQgBgOmwGOkgOf4PofG71T7vVsSdWejSulsp3zQY_3-11sC6Ic4QsDFLZtUqAgHcK9Lo-iG48jkmGVWYiDoEMlTrddQeNBqO0t7-H2cGxDGOjRvDeLInSpHzMUXnAZ_HBOBjlXBUhjqurPeVI0z_SJQExR4wASzIxnExsS-6MYKU38GWXTFvgOLUkpMc4lveZ70InHIPH6ZKGW_1XrXlOq-kYDnbLAPUudg4_Q");'
+              ></div>
+              <div>
+                <p class="text-[#0c1c17] text-base font-medium leading-normal">Gourmet Food Fair</p>
+                <p class="text-[#46a080] text-sm font-normal leading-normal">Taste the best local cuisine</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="text-[#0c1c17] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Popular</h2>
+        <div class="p-4">
+          <div class="flex items-stretch justify-between gap-4 rounded-lg">
+            <div class="flex flex-[2_2_0px] flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <p class="text-[#46a080] text-sm font-normal leading-normal">Music</p>
+                <p class="text-[#0c1c17] text-base font-bold leading-tight">Indie Rock Night</p>
+                <p class="text-[#46a080] text-sm font-normal leading-normal">The Underground Club</p>
+              </div>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#e6f4ef] text-[#0c1c17] text-sm font-medium leading-normal w-fit"
+              >
+                <span class="truncate">View</span>
+              </button>
+            </div>
+            <div
+              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDb-HkEBgL-6bUiSVVfhzDtZF53mNhN1I96N1SqFtohpo_04ro6cGmG9VukYzG4ufc9S0GsypKacfh9OVK6ZDf2fuGCJDMRKq8EDt4OIFQOwWyeEiSZ-22octb5VWxYxxhiDWlDGqHQ8OgsyF4P-q0n973KkYG4ZSPiODY_G1FP-ouwp4-x2lq_tRdqVEpJ5witY774GnldupZCJdMIR7QgKMuF38gMKJUWmZo2zWa0bfzOy7WQqPLo8UxUURvZcBf0_6_VVtRl1Mo");'
+            ></div>
+          </div>
+        </div>
+        <div class="p-4">
+          <div class="flex items-stretch justify-between gap-4 rounded-lg">
+            <div class="flex flex-[2_2_0px] flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <p class="text-[#46a080] text-sm font-normal leading-normal">Food</p>
+                <p class="text-[#0c1c17] text-base font-bold leading-tight">Taco Tuesday</p>
+                <p class="text-[#46a080] text-sm font-normal leading-normal">El Sol Restaurant</p>
+              </div>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#e6f4ef] text-[#0c1c17] text-sm font-medium leading-normal w-fit"
+              >
+                <span class="truncate">View</span>
+              </button>
+            </div>
+            <div
+              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAiudnsF8lXzR7Hwjd2znntTjUx36Cmd547TiCzug3KJ8mTOQkeS7hXbBKHiqFt34nowhmkTmdJFHi6GOgWaTom_Cw9VD5WU5IQIakyhfeYM9CQ_Efqmq0JlY5OdrfjDLE4GYMyMffC607k0wvEicKGGId81YrRCdblH5TRVEyfI1V-H6n4GS2ZEmSxnk5uP5fM59UYBk06dGZk2nOVQJnmFOziCL-UdD4sqEWK__wtQLsk5E1WUel-FeawBqXyBSvKeB9K9Y8vEO4");'
+            ></div>
+          </div>
+        </div>
+        <div class="p-4">
+          <div class="flex items-stretch justify-between gap-4 rounded-lg">
+            <div class="flex flex-[2_2_0px] flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <p class="text-[#46a080] text-sm font-normal leading-normal">Art</p>
+                <p class="text-[#0c1c17] text-base font-bold leading-tight">Modern Art Exhibition</p>
+                <p class="text-[#46a080] text-sm font-normal leading-normal">City Art Gallery</p>
+              </div>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#e6f4ef] text-[#0c1c17] text-sm font-medium leading-normal w-fit"
+              >
+                <span class="truncate">View</span>
+              </button>
+            </div>
+            <div
+              class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1XPgID8r1hvfeVO6UdSmRN_E0VY_khoUmcV3J8q6isbT12DKgejo0gLigSuRzqtW0Jk1JvTQJDSZwj05XsByhq_hyJ57b6IhLESMckF14irxo24imeHlHKcJgdoJPfHGKFNeH9WvddjSrYxmO-q7hPntVLWZrW6v2iQsjaNHhP1I7l7xtTFi1h5qWsm91jJi3np0QEqs2aLWEULhoO2fR0sBCgf2vZObyNB3q9Z1ikrYxcUTgz6ERyW37qKfuaXrg6fBGHmzsYhA");'
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex gap-2 border-t border-[#e6f4ef] bg-[#f8fcfa] px-4 pb-3 pt-2">
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-[#0c1c17]" href="#">
+            <div class="text-[#0c1c17] flex h-8 items-center justify-center" data-icon="House" data-size="24px" data-weight="fill">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#0c1c17] text-xs font-medium leading-normal tracking-[0.015em]">Home</p>
+          </a>
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#46a080]" href="#">
+            <div class="text-[#46a080] flex h-8 items-center justify-center" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+              </svg>
+            </div>
+            <p class="text-[#46a080] text-xs font-medium leading-normal tracking-[0.015em]">Explore</p>
+          </a>
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#46a080]" href="#">
+            <div class="text-[#46a080] flex h-8 items-center justify-center" data-icon="PlusSquare" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm0,176H48V48H208V208Zm-32-80a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#46a080] text-xs font-medium leading-normal tracking-[0.015em]">Create</p>
+          </a>
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#46a080]" href="#">
+            <div class="text-[#46a080] flex h-8 items-center justify-center" data-icon="Ticket" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M227.19,104.48A16,16,0,0,0,240,88.81V64a16,16,0,0,0-16-16H32A16,16,0,0,0,16,64V88.81a16,16,0,0,0,12.81,15.67,24,24,0,0,1,0,47A16,16,0,0,0,16,167.19V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V167.19a16,16,0,0,0-12.81-15.67,24,24,0,0,1,0-47ZM32,167.2a40,40,0,0,0,0-78.39V64H88V192H32Zm192,0V192H104V64H224V88.8a40,40,0,0,0,0,78.39Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#46a080] text-xs font-medium leading-normal tracking-[0.015em]">Tickets</p>
+          </a>
+          <a class="just flex flex-1 flex-col items-center justify-end gap-1 text-[#46a080]" href="#">
+            <div class="text-[#46a080] flex h-8 items-center justify-center" data-icon="User" data-size="24px" data-weight="regular">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                <path
+                  d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-[#46a080] text-xs font-medium leading-normal tracking-[0.015em]">Profile</p>
+          </a>
+        </div>
+        <div class="h-5 bg-[#f8fcfa]"></div>
+      </div>
+    </div>
+  </body>
+</html>
