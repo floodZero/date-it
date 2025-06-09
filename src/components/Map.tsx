@@ -12,6 +12,10 @@ L.Icon.Default.mergeOptions({
   iconRetinaUrl: markerIcon2x,
   iconUrl: markerIcon,
   shadowUrl: markerShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
 });
 
 type EventLocation = {
@@ -48,19 +52,16 @@ export const Map = ({
   const routeLineRef = useRef<L.Polyline | null>(null);
   const [mapInitialized, setMapInitialized] = useState(false);
   const [mapError, setMapError] = useState<string | null>(null);
+  const resizeObserverRef = useRef<ResizeObserver | null>(null);
 
   // Initialize map on component mount
   useEffect(() => {
-    if (mapInitialized || mapError || !mapContainerRef.current) return;
+    if (mapInitialized || !mapContainerRef.current) return;
 
-    // Ensure the container is visible and has dimensions
-    if (mapContainerRef.current.offsetWidth === 0 || mapContainerRef.current.offsetHeight === 0) {
-      console.warn('Map container has no dimensions, waiting for layout...');
-      return;
-    }
+    console.log('Initializing map...');
 
     try {
-      // Initialize the map with default view
+      // Initialize the map
       const map = L.map(mapContainerRef.current, {
         zoomControl: false,
         doubleClickZoom: false,
@@ -69,23 +70,17 @@ export const Map = ({
         touchZoom: true,
         zoomSnap: 0.1,
         zoomDelta: 0.5,
-        inertia: false
+        inertia: false,
+        preferCanvas: true
       });
-      console.log("map", map);
 
-      // Set initial view after a small delay to ensure the container is ready
-      setTimeout(() => {
-        try {
-          map.setView(center, zoom, { animate: false });
-        } catch (e) {
-          console.error('Error setting initial map view:', e);
-        }
-      }, 50);
+      console.log('Map instance created');
 
       // Add tile layer (OpenStreetMap)
-      const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19,
+        detectRetina: true
       }).addTo(map);
 
       // Add zoom control
@@ -93,16 +88,23 @@ export const Map = ({
         position: 'topright'
       }).addTo(map);
 
+      // Set initial view
+      map.setView(center, zoom, { animate: false });
+      console.log('Map view set to:', { center, zoom });
+      
       // Store the map instance
       mapRef.current = map;
       setMapInitialized(true);
+      console.log('Map initialized successfully');
 
-      // Force a resize after the map is initialized
-      setTimeout(() => {
-        if (mapRef.current) {
-          mapRef.current.invalidateSize({ pan: false });
-        }
-      }, 100);
+      // Set up resize observer for the container
+      const resizeObserver = new ResizeObserver(() => {
+        console.log('Container resized, invalidating map size');
+        map.invalidateSize({ pan: false });
+      });
+
+      resizeObserver.observe(mapContainerRef.current);
+      resizeObserverRef.current = resizeObserver;
 
       // Call onMapReady callback if provided
       if (onMapReady) {
@@ -115,16 +117,17 @@ export const Map = ({
 
       // Cleanup function
       return () => {
-        if (mapRef.current) {
-          mapRef.current.remove();
-          mapRef.current = null;
-        }
+        resizeObserver.disconnect();
+        map.remove();
+        mapRef.current = null;
+        setMapInitialized(false);
       };
     } catch (error) {
       console.error('Failed to initialize map:', error);
       setMapError('Failed to load map. Please try again later.');
+      return () => {}; // No-op cleanup if initialization failed
     }
-  }, [center, zoom, mapInitialized, mapError, onMapReady]);
+  }, []); // Empty dependency array to run only once on mount
 
   // Update markers when events change
   useEffect(() => {
@@ -186,6 +189,8 @@ export const Map = ({
 
   // Handle window resize with debounce
   useEffect(() => {
+    if (!mapRef.current) return;
+    
     let resizeTimer: NodeJS.Timeout;
     
     const handleResize = () => {
@@ -197,60 +202,40 @@ export const Map = ({
       // Debounce the resize
       resizeTimer = setTimeout(() => {
         try {
-          const map = mapRef.current;
-          if (map) {
-            // Store current center and zoom
-            const center = map.getCenter();
-            const zoom = map.getZoom();
-            
-            // Invalidate size and restore view
-            map.invalidateSize({ pan: false });
-            
-            // Restore the view after a small delay
-            setTimeout(() => {
-              if (mapRef.current) {
-                mapRef.current.setView(center, zoom, { animate: false });
-              }
-            }, 50);
-          }
+          mapRef.current?.invalidateSize({ pan: false });
         } catch (e) {
           console.error('Error during resize:', e);
         }
-      }, 100);
+      }, 150);
     };
 
+    // Add event listener for window resize
     window.addEventListener('resize', handleResize);
     
-    // Initial check after mount
-    const timer = setTimeout(handleResize, 300);
+    // Initial resize check
+    handleResize();
     
+    // Cleanup
     return () => {
-      clearTimeout(timer);
-      if (resizeTimer) clearTimeout(resizeTimer);
       window.removeEventListener('resize', handleResize);
+      if (resizeTimer) clearTimeout(resizeTimer);
     };
   }, []);
 
   if (mapError) {
     return (
-      <div className={`${className} bg-gray-100 flex items-center justify-center`}>
-        <div className="text-center p-4">
-          <p className="text-red-500">{mapError}</p>
-        </div>
+      <div className={`${className} flex items-center justify-center bg-gray-100 text-red-600`}>
+        {mapError}
       </div>
     );
   }
 
-
   return (
-    <div
-      ref={mapContainerRef}
-      className={`${className} bg-gray-100`}
-      style={{ minHeight: '300px', width: "100%" }}
-    >
+    <div className={`${className} relative`}>
+      <div className="absolute inset-0 w-full h-full" ref={mapContainerRef} />
       {!mapInitialized && (
-        <div className="h-full flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-500"></div>
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+          <div className="animate-pulse text-gray-500">Loading map...</div>
         </div>
       )}
     </div>
